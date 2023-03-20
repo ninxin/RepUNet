@@ -1,0 +1,33 @@
+model:
+  type: RepNet
+  args:
+    {}
+
+loss:
+  type: CE_DiceLoss
+  args:
+    {}
+
+optimizer:
+  type: Adam
+  args:
+    lr: 1e-5
+    weight_decay: 1e-6
+
+
+lr_scheduler:
+  type: CosineAnnealingLR
+  args:
+    T_max: 40
+
+epochs: 40
+save_dir: saved/
+val_per_epochs: 1
+save_period: 1
+tensorboard: true
+threshold: 0.5
+threshold_low: 0.3
+DTI: false
+amp: true
+tta: false
+CCC: false
